@@ -1,0 +1,4333 @@
+/*
+ * Author       : demo2zentegra
+ * Generated on : 10-Mar-2026 04:48:05
+ * Version      : 1.0
+ */
+ application "Hotel Management"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "America/Chicago"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Add_guest
+		{
+			displayname = "Add guest"
+			success message = "Guest Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Guest_name
+			(
+    			type = name
+				displayname = "Guest name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Phone_number1
+			(
+    			type = phonenumber
+				displayname = "Phone number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Guest_Email
+			(
+    			type = email
+				displayname = "Guest Email "
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Photo
+			(
+    			type = upload file
+				browse = local_drive
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Guest_type
+			(
+				type = radiobuttons
+				displayname = "Guest type"
+				maxchar = 100
+				values = {"Simply guest","Corporate"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Corporate
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Employee_ID
+			(
+    			type = text
+				displayname = "Employee ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			ID_proof
+			(
+    			type = upload file
+				displayname = "ID proof"
+				browse = local_drive
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Add"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Amenities_bill
+		{
+			displayname = "Amenities bill"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Date_Time
+			(
+    			type = datetime
+				displayname = "Date-Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Customer_Name
+			(
+    			type = name
+				displayname = "Customer Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Customer_email
+			(
+    			type = email
+				displayname = "Customer email"
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Room_number
+			(
+    			type = text
+				displayname = "Room number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Room
+			(
+				type = picklist
+				displayname = "Room type"
+				maxchar = 100
+				values = {"AC room","Normal room"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Select_Amenities
+			(
+				type = picklist
+				displayname = "Select Amenities"
+				maxchar = 100
+				values = {"Food and reverage","Facilities","Services"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Food_and_reverage
+			(
+				type = picklist
+				displayname = "Food and reverage"
+				maxchar = 100
+				values = {"Mini - Bar","Restaurant meals"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Mini_Bar
+			(
+				type = radiobuttons
+				displayname = "Mini Bar"
+				maxchar = 100
+				values = {"Beer","Whisky","Rum","Odka","Wine","Cocktail"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Restaurant_meals
+			(
+				type = radiobuttons
+				displayname = "Restaurant meals"
+				maxchar = 100
+				values = {"Chicken biriyani","Fried rice","South Indian meals","Non panner butter masala"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Facilities
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Gym access","Swimming pool"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Gym_access
+			(
+				type = radiobuttons
+				displayname = "Gym access"
+				maxchar = 100
+				values = {"Treadmill","Workout","Body building"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Swimming_pool
+			(
+				type = radiobuttons
+				displayname = "Swimming pool"
+				maxchar = 100
+				values = {"Swim","Visitor"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Services
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Laundry / dry cleaning","Physio treatment"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Laundry
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"Washing only","Iron only","Washing and iron cloths"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Physio_treatment
+			(
+				type = radiobuttons
+				displayname = "Physio treatment"
+				maxchar = 100
+				values = {"Hand treatment","Leg treatment","Full body treatment","Headache treatment"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Payment_status
+			(
+				type = picklist
+				displayname = "Payment status"
+				maxchar = 100
+				values = {"Yes","No"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_amount
+			(
+				type = number
+				displayname = "Total amount"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Cash_payment
+		{
+			displayname = "Cash payment"
+			success message = "Cash Payment Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Payment_on
+			(
+    			type = datetime
+				displayname = "Payment on"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Select_corporate
+			(
+				type = picklist
+				displayname = "Select corporate"
+				maxchar = 100
+				values = {"Choice 1","Choice 2","Choice 3"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Room_tariff
+			(
+				displayname = "Room tariff"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Restaurant_charge
+			(
+				displayname = "Restaurant charge"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_charge
+			(
+				displayname = "Service charge"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Amenity_Charge
+			(
+				displayname = "Amenity Charge"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Pre_paid_amount
+			(
+				displayname = "Pre paid amount"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Remaining_amount
+			(
+				displayname = "Remaining amount"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_amount
+			(
+				displayname = "Total amount"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Amount_received
+			(
+    			type = checkbox
+				displayname = "Amount received"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Maintenance_Block
+		{
+			displayname = "Maintenance Block"
+			success message = "Maintenance Block Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Room_number
+			(
+				type = number
+				displayname = "Room number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Maintenance_type
+			(
+				type = picklist
+				displayname = "Maintenance type"
+				maxchar = 100
+				values = {"Room cleaning","Washroom cleaning","Other services"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Block_from
+			(
+    			type = datetime
+				displayname = "Block from"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Block_to
+			(
+    			type = datetime
+				displayname = "Block to "
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Raise_new_complaint
+		{
+			displayname = "Raise new complaint"
+			success message = "New Complaint Raised Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Room_number
+			(
+    			type = text
+				displayname = "Room number "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Type_field
+			(
+				type = radiobuttons
+				displayname = "Type"
+				maxchar = 100
+				values = {"Maintenance issue","Shifting","Other"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Received_by
+			(
+				type = picklist
+				displayname = "Received by"
+				maxchar = 100
+				values = {"Admin"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Raise"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Reservation
+		{
+			success message = "Reservation Added Successfully"
+			Guest_details
+			(
+				type = grid
+				displayname = "Guest details"
+				Guest_name
+				(
+    				type = name
+					displayname = "Guest name"
+     				prefix
+     				(
+	     				 type = prefix
+	     				 displayname ="Prefix"
+	     				 visibility = false
+	     				 value = {"Mr.","Mrs.","Ms."}
+     				) 
+     				first_name
+     				(
+	     				 type = first_name
+	     				 displayname ="First Name"
+     				) 
+     				last_name
+     				(
+	     				 type = last_name
+	     				 displayname ="Last Name"
+     				) 
+     				suffix
+     				(
+	     				 type = suffix
+	     				 displayname ="Suffix"
+	     				 visibility = false
+     				) 
+					width = medium
+					personal data = true
+				)
+				Aadhar_number
+				(
+					type = number
+					displayname = "Aadhar number"
+					width = medium
+				)
+				Gender
+				(
+					type = picklist
+					maxchar = 100
+					values = {"Male","Female","Third gender"}
+					width = medium
+				)
+				Date_of_birth
+				(
+    				type = date
+					displayname = "Date of birth"
+					alloweddays = 0,1,2,3,4,5,6
+					width = medium
+				)
+				Age
+				(
+					type = number
+					width = medium
+				)
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reservation_section_1
+			(
+				type = section
+				displayname = "Reservation details"
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			Check_in_date
+			(
+    			type = date
+				displayname = "Check-in date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Mobile_number
+			(
+    			type = phonenumber
+				displayname = "Mobile number"
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Guest_type
+			(
+				type = picklist
+				displayname = "Guest type"
+				maxchar = 100
+				values = {"Corporate","Individual"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Company_name
+			(
+    			type = text
+				displayname = "Company name "
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Employee_ID
+			(
+				type = number
+				displayname = "Employee ID"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Number_of_rooms
+			(
+				type = number
+				displayname = " Number of rooms"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Number_of_adults
+			(
+    			type = text
+				displayname = "Number of adults"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Confirm_reservation
+			(
+    			type = checkbox
+				displayname = "Confirm reservation"
+				initial value = false
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Room_type
+			(
+				type = picklist
+				displayname = "Room type"
+				maxchar = 100
+				values = {"AC room","Normal room"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			AC_room_number
+			(
+				type = list	
+				displayname = "AC room number"
+				values = {"1","2","3","4","5"}
+				height = 60px
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Normal_room_number
+			(
+				type = list	
+				displayname = "Normal room number"
+				values = {"1","2","3","4","5"}
+				height = 60px
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Number_of_days_stayed
+			(
+				type = number
+				displayname = "Number of days stayed"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Room_tariff
+			(
+				displayname = "Room tariff"
+				type = USD
+				format = commadotwestern
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Advance_amount
+			(
+				displayname = "Advance amount"
+				type = USD
+				format = commadotwestern
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Tax_amount
+			(
+				displayname = "Tax amount"
+				type = USD
+				format = commadotwestern
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Total_amount
+			(
+				displayname = "Total amount"
+				type = USD
+				format = commadotwestern
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Payment_status
+			(
+				type = picklist
+				displayname = "Payment status"
+				maxchar = 100
+				values = {"Completed","Awaiting"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Payment_QR
+			(
+    			type = plaintext
+				value = "<div>Hi Add your Note here ...<br /></div>"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			ID1
+			(
+    			type = text
+				displayname = "ID"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Payment_type
+			(
+				type = picklist
+				displayname = "Payment type"
+				maxchar = 100
+				values = {"Online payment","Cash payment"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Check_out_date
+			(
+    			type = date
+				displayname = "Check-out date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Service_bill
+		{
+			displayname = "Service bill"
+			success message = "Service Bill Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Date_Time
+			(
+    			type = datetime
+				displayname = "Date-Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Customer_name
+			(
+    			type = name
+				displayname = "Customer name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Phone_number
+			(
+				type = number
+				displayname = "Phone number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Room_number
+			(
+				type = number
+				displayname = "Room number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Choose_service
+			(
+				type = picklist
+				displayname = "Choose service"
+				maxchar = 100
+				values = {"Food service","Room cleaning","Electrical servie"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Snacks
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Veg puffs","Egg puffs","Cookies","Pizza","Burger"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Room_cleaning
+			(
+				type = picklist
+				displayname = "Room cleaning"
+				maxchar = 100
+				values = {"Cleaning floor","Clean the mirror / things","Deep cleaning","Public area cleaning","Laundry Services","Washroom cleaning"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Electrical_service
+			(
+				type = picklist
+				displayname = "Electrical service"
+				maxchar = 100
+				values = {"Water service","Light / lamp faults","No electricity issues"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Usage_details
+			(
+    			type = textarea
+				displayname = "Usage details"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Charge
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Tax_Amount
+			(
+				type = number
+				displayname = "Tax Amount"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Shift_a_room
+		{
+			displayname = "Shift a room"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Current_room
+			(
+    			type = text
+				displayname = "Current room"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Move_to
+			(
+    			type = text
+				displayname = "Move to"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Apply_rate
+			(
+				displayname = "Apply rate"
+				type = USD
+				format = commadotwestern
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reason
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list All_Reservations
+		{
+			displayName = "All Reservations"
+			show all rows from Reservation    
+			(
+				Check_in_date as "Check-in date"
+				Check_out_date as "Check-out date"
+				Guest_type as "Guest type"
+				Number_of_adults as "Number of adults"
+				Room_type as "Room type"
+				Payment_status as "Payment status"
+				Room_tariff as "Room tariff"
+				Tax_amount as "Tax amount"
+				Total_amount as "Total amount"
+				Advance_amount as "Advance amount"
+				Company_name as "Company name "
+				Confirm_reservation as "Confirm reservation"
+				Employee_ID as "Employee ID"
+				ID1 as "ID"
+				Number_of_days_stayed as "Number of days stayed"
+				Number_of_rooms as " Number of rooms"
+				Mobile_number as "Mobile number"
+				(
+					displayformat = plainnumber 
+					linktodial = enable
+				)
+				AC_room_number as "AC room number"
+				Normal_room_number as "Normal room number"
+				Guest_details.Guest_name as "Guest details"
+				Email
+				Payment_type as "Payment type"
+			)
+		}
+		default list All_New_Complaints
+		{
+			displayName = "All New Complaints"
+			show all rows from Raise_new_complaint    
+			(
+				Type_field as "Type"
+				Description
+				Received_by as "Received by"
+				Room_number as "Room number "
+			)
+		}
+		default list Shift_a_room_Report
+		{
+			displayName = "Shift a room Report"
+			show all rows from Shift_a_room    
+			(
+				Current_room as "Current room"
+				Move_to as "Move to"
+				Reason
+				Apply_rate as "Apply rate"
+			)
+		}
+		default list All_Maintenance_Blocks
+		{
+			displayName = "All Maintenance Blocks"
+			show all rows from Maintenance_Block    
+			(
+				Maintenance_type as "Maintenance type"
+				Description
+				Room_number as "Room number"
+				Block_from as "Block from"
+				Block_to as "Block to "
+			)
+		}
+		default list All_Service_Bills
+		{
+			displayName = "All Service Bills"
+			show all rows from Service_bill    
+			(
+				Date_Time as "Date-Time"
+				Choose_service as "Choose service"
+				Usage_details as "Usage details"
+				Charge
+				Tax_Amount as "Tax Amount"
+				Total
+				Room_number as "Room number"
+				Snacks
+				Email
+				Phone_number as "Phone number"
+				Customer_name  as "Customer name"
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Room_cleaning as "Room cleaning"
+				Electrical_service as "Electrical service"
+			)
+		}
+		default list Amenities_bill_Report
+		{
+			displayName = "Amenities bill Report"
+			show all rows from Amenities_bill    
+			(
+				Date_Time as "Date-Time"
+				Room as "Room type"
+				Select_Amenities as "Select Amenities"
+				Total_amount as "Total amount"
+				Food_and_reverage as "Food and reverage"
+				Services
+				Mini_Bar as "Mini Bar"
+				Restaurant_meals as "Restaurant meals"
+				Facilities
+				Gym_access as "Gym access"
+				Swimming_pool as "Swimming pool"
+				Laundry
+				Physio_treatment as "Physio treatment"
+				Customer_email as "Customer email"
+				Payment_status as "Payment status"
+				Customer_Name  as "Customer Name"
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Room_number as "Room number"
+			)
+		}
+		default list All_Guests
+		{
+			displayName = "All Guests"
+			show all rows from Add_guest    
+			(
+				Guest_name  as "Guest name"
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Phone_number1 as "Phone number"
+				(
+					displayformat = plainnumber 
+					linktodial = enable
+				)
+				Guest_Email as "Guest Email "
+				Photo
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Guest_type as "Guest type"
+				Corporate
+				Employee_ID as "Employee ID"
+				ID_proof as "ID proof"
+			)
+		}
+		default list All_Cash_Payments
+		{
+			displayName = "All Cash Payments"
+			show all rows from Cash_payment    
+			(
+				Payment_on as "Payment on"
+				Select_corporate as "Select corporate"
+				Room_tariff as "Room tariff"
+				Restaurant_charge as "Restaurant charge"
+				Service_charge as "Service charge"
+				Amenity_Charge as "Amenity Charge"
+				Pre_paid_amount as "Pre paid amount"
+				Remaining_amount as "Remaining amount"
+				Total_amount as "Total amount"
+				Amount_received as "Amount received"
+			)
+		}
+	}
+
+
+		workflow
+		{
+		form
+		{
+			Hide_show_fields as "Hide/show fields"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											//reservation form
+										hide Company_name;
+										// hide Guest;
+										hide Room_type;
+										hide Room_tariff;
+										hide Tax_amount;
+										hide Advance_amount;
+										hide Total_amount;
+										hide Payment_status;
+										hide ID1;
+										hide Employee_ID;
+										// hide Name_of_the_employee;
+										hide ID1;
+										hide Number_of_days_stayed;
+										hide Payment_QR;
+										hide AC_room_number;
+										hide Normal_room_number;
+										hide Payment_type;
+						)
+					}
+				}
+
+			}
+			Show_comapny_and_guest as "Show comapny and guest"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Guest_type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Guest_type == "Corporate")
+										{
+											show Company_name;
+											show Employee_ID;
+											// 	show Name_of_the_employee;
+										}
+										// else if(input.Guest_type == "Individual")
+										// {
+										// 	show Guest;
+										// }
+										else
+										{
+											hide Company_name;
+											// 	hide Guest;
+											hide Employee_ID;
+											// 	hide Name_of_the_employee;
+										}
+						)
+					}
+				}
+
+			}
+			Show_payment_details_sect as "Show payment details section"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Confirm_reservation
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Confirm_reservation == true)
+										{
+											show Room_type;
+											show Room_tariff;
+											show Tax_amount;
+											show Advance_amount;
+											show Total_amount;
+											show Payment_status;
+											show ID1;
+											show Number_of_days_stayed;
+											show Payment_type;
+										}
+										else
+										{
+											hide Room_type;
+											hide Room_tariff;
+											hide Tax_amount;
+											hide Advance_amount;
+											hide Total_amount;
+											hide Payment_status;
+											hide ID1;
+											hide Number_of_days_stayed;
+											hide Payment_type;
+										}
+						)
+					}
+				}
+
+			}
+			Workflow_in_check_in_date as "Workflow in check in date"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Check_in_date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if input date is before today
+										if(input.Check_in_date < zoho.currentdate)
+										{
+											// Alert the user and clear the field
+											alert "Past dates cannot be selected.";
+											input.Check_in_date = null;
+										}
+						)
+					}
+				}
+
+			}
+			Workflow_in_check_out_dat as "Workflow in check out date"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Check_out_date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if input date is before today
+										if(input.Check_out_date < input.Check_in_date)
+										{
+											// Alert the user and clear the field
+											alert "Checkout date not previous then Checkin date";
+											input.Check_out_date = null;
+										}
+						)
+					}
+				}
+
+			}
+			Generate_ID as "Generate ID"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Payment_status
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// 1. Fetch the latest record
+										lastRecord = Reservation[ID != 0] sort by Added_Time desc;
+										// 2. Get the string and extract ONLY the numbers
+										lastIDString = ifnull(lastRecord.ID1,"0");
+										// This regex removes everything that is NOT a digit (0-9)
+										lastNumString = lastIDString.replaceAll("[^0-9]","");
+										// 3. Convert to number (default to 0 if the string is empty)
+										lastNum = if(lastNumString == "",0,lastNumString.toLong());
+										// 4. Increment and set the field
+										newNum = lastNum + 1;
+										input.ID1 = "Guest-" + newNum;
+						)
+					}
+				}
+
+			}
+			Disable_ID1 as "Disable ID"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											disable ID1;
+										disable Guest_details.Age;
+										disable Number_of_days_stayed;
+						)
+					}
+				}
+
+			}
+			Hide_show_guest_ID as "Hide & show guest ID"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Payment_status
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Payment_status == "Completed" || input.Payment_status == "Awaiting")
+										{
+											show ID1;
+										}
+										else
+										{
+											hide ID1;
+										}
+						)
+					}
+				}
+
+			}
+			test as "test"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Advance_amount
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											cost_for_acroom = 800;
+										cost_for_normalroom = 600;
+										calculate_amount_acroom = cost_for_acroom * input.Number_of_days_stayed;
+										calculate_amount_normalroom = cost_for_normalroom * input.Number_of_days_stayed;
+										tax_acroom = 200;
+										tax_normalroom = 100;
+										calculate_totaltax_for_acroom = tax_acroom * input.Number_of_days_stayed;
+										calculate_totaltax_for_normalroom = tax_acroom * input.Number_of_days_stayed;
+										new_var = input.Total_amount;
+										no_of_rooms = input.Number_of_rooms;
+										if(input.Room_type == "AC room")
+										{
+											if(input.Advance_amount != null)
+											{
+												amount = calculate_amount_acroom + calculate_totaltax_for_acroom + input.Room_tariff;
+												room = amount * no_of_rooms;
+												input.Total_amount = room - input.Advance_amount;
+												input.Tax_amount = calculate_totaltax_for_acroom;
+											}
+											else
+											{
+												amount = calculate_amount_acroom + calculate_totaltax_for_acroom + input.Room_tariff + input.Advance_amount;
+												// 		info input.Advance_amount ;
+												room = amount * new_var;
+												input.Total_amount = room;
+												input.Tax_amount = calculate_totaltax_for_acroom;
+											}
+										}
+										else if(input.Room_type == "Normal room")
+										{
+											if(input.Advance_amount != null)
+											{
+												amount = calculate_amount_normalroom + calculate_totaltax_for_normalroom + input.Room_tariff;
+												input.Total_amount = amount - input.Advance_amount;
+												input.Tax_amount = calculate_totaltax_for_normalroom;
+											}
+											else
+											{
+												amount = calculate_amount_normalroom + calculate_totaltax_for_normalroom + input.Room_tariff;
+												input.Total_amount = amount;
+												input.Tax_amount = calculate_totaltax_for_normalroom;
+											}
+										}
+						)
+					}
+				}
+
+			}
+			Disable_in_shift_a_room as "Disable in shift a room"
+			{
+				type =  form
+				form = Shift_a_room
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											disable Apply_rate;
+						)
+					}
+				}
+
+			}
+			Block_from_date_field as "Block from date field"
+			{
+				type =  form
+				form = Maintenance_Block
+
+				record event = on add or edit
+
+				on user input of Block_from
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if input date is before today
+										if(input.Block_from < zoho.currentdate)
+										{
+											// Alert the user and clear the field
+											alert "Past dates cannot be selected.";
+											input.Block_from = null;
+										}
+						)
+					}
+				}
+
+			}
+			Block_to_field as "Block to  field"
+			{
+				type =  form
+				form = Maintenance_Block
+
+				record event = on add or edit
+
+				on user input of Block_to
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if input date is before today
+										if(input.Block_to < input.Block_from)
+										{
+											// Alert the user and clear the field
+											alert "Checkout date not previous then Checkin date";
+											input.Block_to = null;
+										}
+						)
+					}
+				}
+
+			}
+			amount_showing as "amount showing"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Snacks
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Snacks == "Veg puffs")
+										{
+											input.Charge = 30;
+											input.Tax_Amount = 3;
+											input.Total = 33;
+										}
+										else if(input.Snacks == "Egg puffs")
+										{
+											input.Charge = 45;
+											input.Tax_Amount = 4;
+											input.Total = 49;
+										}
+										else if(input.Snacks == "Cookies")
+										{
+											input.Charge = 25;
+											input.Tax_Amount = 2;
+											input.Total = 27;
+										}
+										else if(input.Snacks == "Pizza")
+										{
+											input.Charge = 99;
+											input.Tax_Amount = 8;
+											input.Total = 107;
+										}
+										else if(input.Snacks == "Burger")
+										{
+											input.Charge = 85;
+											input.Tax_Amount = 7;
+											input.Total = 92;
+										}
+										else
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Bill_to_customer as "Bill to customer"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Choose_service == "Food service")
+										{
+											ticket_html = "";
+											ticket_html = ticket_html + "<html>";
+											ticket_html = ticket_html + "<head><meta charset='UTF-8'><title>Hotel Management Snacks Bill</title></head>";
+											ticket_html = ticket_html + "<body style='margin:0;padding:20px;background:#f4f6f8;font-family:Segoe UI,Arial;'>";
+											ticket_html = ticket_html + "<table width='100%' cellspacing='0' cellpadding='0'><tr><td align='center'>";
+											ticket_html = ticket_html + "<table width='600' style='background:#ffffff;border-radius:10px;padding:25px;'>";
+											ticket_html = ticket_html + "<tr><td style='text-align:center;border-bottom:2px dashed #ddd;padding-bottom:15px;'>";
+											ticket_html = ticket_html + "<h1 style='margin:0;color:#2c3e50;'>Welcome to Hills Grand Hotel snacks</h1>";
+											ticket_html = ticket_html + "<p style='color:#777;font-size:12px;'>Thank you for choosing our service, Enjoy your snacks !</p>";
+											ticket_html = ticket_html + "<span style='padding:6px 14px;border-radius:20px;font-size:12px;'>" + input.Date_Time + "</span>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td>";
+											ticket_html = ticket_html + "<table width='100%' style='font-size:14px;margin-top:20px;'>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Customer name</td><td style='padding:10px;'>" + input.Customer_name + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Room number</td><td style='padding:10px;'>" + input.Room_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Date time</td><td style='padding:10px;'>" + input.Date_Time + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Mail</td><td style='padding:10px;'>" + input.Email + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>phone</td><td style='padding:10px;'>" + input.Phone_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Snacks type</td><td style='padding:10px;'>" + input.Snacks + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Price</td><td style='padding:10px;'>" + input.Total + "</td></tr>";
+											ticket_html = ticket_html + "<tr>" + "<td style='padding:10px;color:#555;'>QR code</td>" + "<td style='padding:10px;color:#27ae60;font-weight:bold;'>" + "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + input.Total + "'style='width:120px;height:120px;'>" + "</td>" + "</tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr></table>";
+											ticket_html = ticket_html + "</body></html>";
+											sendmail
+											[
+												from :"zentegrademo31@gmail.com"
+												to :input.Email
+												cc:"manikandansjobzen@gmail.com"
+												reply to :"manikandan@zentegra.com"
+												subject :"Welcome to Hotel Management snacks, Your snacks order was confirmed"
+												message :ticket_html
+											]
+										}
+										else if(input.Choose_service == "Room cleaning")
+										{
+											ticket_html = "";
+											ticket_html = ticket_html + "<html>";
+											ticket_html = ticket_html + "<head><meta charset='UTF-8'><title>Hotel Management Room Cleaning service bill</title></head>";
+											ticket_html = ticket_html + "<body style='margin:0;padding:20px;background:#f4f6f8;font-family:Segoe UI,Arial;'>";
+											ticket_html = ticket_html + "<table width='100%' cellspacing='0' cellpadding='0'><tr><td align='center'>";
+											ticket_html = ticket_html + "<table width='600' style='background:#ffffff;border-radius:10px;padding:25px;'>";
+											ticket_html = ticket_html + "<tr><td style='text-align:center;border-bottom:2px dashed #ddd;padding-bottom:15px;'>";
+											ticket_html = ticket_html + "<h1 style='margin:0;color:#2c3e50;'>Welcome to Hotel Management</h1>";
+											ticket_html = ticket_html + "<p style='color:#777;font-size:12px;'>Thank you for choosing our service !</p>";
+											ticket_html = ticket_html + "<span style='background:#27ae60;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;'>PAID ✅</span>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td>";
+											ticket_html = ticket_html + "<table width='100%' style='font-size:14px;margin-top:20px;'>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Customer name</td><td style='padding:10px;'>" + input.Customer_name + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Room number</td><td style='padding:10px;'>" + input.Room_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Date time</td><td style='padding:10px;'>" + input.Date_Time + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Mail</td><td style='padding:10px;'>" + input.Email + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>phone</td><td style='padding:10px;'>" + input.Phone_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Cleaning service type</td><td style='padding:10px;'>" + input.Room_cleaning + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Price</td><td style='padding:10px;'>" + input.Total + "</td></tr>";
+											ticket_html = ticket_html + "<tr>" + "<td style='padding:10px;color:#555;'>QR code</td>" + "<td style='padding:10px;color:#27ae60;font-weight:bold;'>" + "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + input.Total + "'style='width:120px;height:120px;'>" + "</td>" + "</tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr></table>";
+											ticket_html = ticket_html + "</body></html>";
+											sendmail
+											[
+												from :"zentegrademo31@gmail.com"
+												to :input.Email
+												cc:"manikandansjobzen@gmail.com"
+												reply to :"manikandan@zentegra.com"
+												subject :"Welcome to Hotel Management's cleaning service"
+												message :ticket_html
+											]
+										}
+										else if(input.Choose_service == "Electrical servie")
+										{
+											ticket_html = "";
+											ticket_html = ticket_html + "<html>";
+											ticket_html = ticket_html + "<head><meta charset='UTF-8'><title>Hotel Management Electrical service bill</title></head>";
+											ticket_html = ticket_html + "<body style='margin:0;padding:20px;background:#f4f6f8;font-family:Segoe UI,Arial;'>";
+											ticket_html = ticket_html + "<table width='100%' cellspacing='0' cellpadding='0'><tr><td align='center'>";
+											ticket_html = ticket_html + "<table width='600' style='background:#ffffff;border-radius:10px;padding:25px;'>";
+											ticket_html = ticket_html + "<tr><td style='text-align:center;border-bottom:2px dashed #ddd;padding-bottom:15px;'>";
+											ticket_html = ticket_html + "<h1 style='margin:0;color:#2c3e50;'>Welcome to Hotel Management</h1>";
+											ticket_html = ticket_html + "<p style='color:#777;font-size:12px;'>Thank you for choosing our service !</p>";
+											ticket_html = ticket_html + "<span style='background:#27ae60;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;'>PAID ✅</span>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td>";
+											ticket_html = ticket_html + "<table width='100%' style='font-size:14px;margin-top:20px;'>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Customer name</td><td style='padding:10px;'>" + input.Customer_name + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Room number</td><td style='padding:10px;'>" + input.Room_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Date time</td><td style='padding:10px;'>" + input.Date_Time + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Mail</td><td style='padding:10px;'>" + input.Email + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>phone</td><td style='padding:10px;'>" + input.Phone_number + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Electrical service type</td><td style='padding:10px;'>" + input.Electrical_service + "</td></tr>";
+											ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Price</td><td style='padding:10px;'>" + input.Total + "</td></tr>";
+											ticket_html = ticket_html + "<tr>" + "<td style='padding:10px;color:#555;'>QR code</td>" + "<td style='padding:10px;color:#27ae60;font-weight:bold;'>" + "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + input.Total + "'style='width:120px;height:120px;'>" + "</td>" + "</tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr>";
+											ticket_html = ticket_html + "</table>";
+											ticket_html = ticket_html + "</td></tr></table>";
+											ticket_html = ticket_html + "</body></html>";
+											sendmail
+											[
+												from :"zentegrademo31@gmail.com"
+												to :input.Email
+												cc:"manikandansjobzen@gmail.com"
+												reply to :"manikandan@zentegra.com"
+												subject :"Welcome to Hotel Management's Electrical service"
+												message :ticket_html
+											]
+										}
+						)
+					}
+				}
+
+			}
+			enable_snacks as "enable snacks"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Choose_service
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Choose_service == "Food service")
+										{
+											show Snacks;
+										}
+										else if(input.Choose_service != "Food service")
+										{
+											hide Snacks;
+										}
+										else if(input.Choose_service == null)
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			hide_fields as "hide fields"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											hide Snacks;
+										hide Room_cleaning;
+										hide Electrical_service;
+						)
+					}
+				}
+
+			}
+			Room_cleaning as "Room cleaning"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Choose_service
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Choose_service == "Room cleaning")
+										{
+											show Room_cleaning;
+										}
+										else if(input.Choose_service != "Room cleaning")
+										{
+											hide Room_cleaning;
+										}
+										else
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Electrical_service as "Electrical service"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Choose_service
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Choose_service == "Electrical servie")
+										{
+											show Electrical_service;
+										}
+										else if(input.Choose_service != "Electrical servie")
+										{
+											hide Electrical_service;
+										}
+										else
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Room_cleaning1 as "Room cleaning"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Room_cleaning
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Room_cleaning == "Cleaning floor")
+										{
+											input.Charge = 25;
+											input.Tax_Amount = 3;
+											input.Total = 28;
+										}
+										else if(input.Room_cleaning == "Clean the mirror / things")
+										{
+											input.Charge = 20;
+											input.Tax_Amount = 2;
+											input.Total = 22;
+										}
+										else if(input.Room_cleaning == "Deep cleaning")
+										{
+											input.Charge = 30;
+											input.Tax_Amount = 5;
+											input.Total = 35;
+										}
+										else if(input.Room_cleaning == "Public area cleaning")
+										{
+											input.Charge = 100;
+											input.Tax_Amount = 10;
+											input.Total = 110;
+										}
+										else if(input.Room_cleaning == "Laundry Services")
+										{
+											input.Charge = 25;
+											input.Tax_Amount = 25;
+											input.Total = 50;
+										}
+										else if(input.Room_cleaning == "Washroom cleaning")
+										{
+											input.Charge = 35;
+											input.Tax_Amount = 5;
+											input.Total = 40;
+										}
+										else
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Electrical_service1 as "Electrical service"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Electrical_service
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Electrical_service == "Water service")
+										{
+											input.Charge = 45;
+											input.Tax_Amount = 5;
+											input.Total = 50;
+										}
+										else if(input.Electrical_service == "Light / lamp faults")
+										{
+											input.Charge = 30;
+											input.Tax_Amount = 5;
+											input.Total = 35;
+										}
+										else if(input.Electrical_service == "No electricity issues")
+										{
+											input.Charge = 39;
+											input.Tax_Amount = 1;
+											input.Total = 40;
+										}
+										else
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Empty_tax_amount_total as "Empty tax,amount,total"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Choose_service
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Choose_service != "Food service" || input.Choose_service != "Room cleaning" || input.Choose_service != "Electrical servie")
+										{
+											input.Charge = 0;
+											input.Tax_Amount = 0;
+											input.Total = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Date_time_validation as "Date time validation"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Date_Time
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Check if input date is before today
+										if(input.Date_Time < zoho.currentdate)
+										{
+											// Alert the user and clear the field
+											alert "Past dates cannot be selected.";
+											input.Date_Time = null;
+										}
+						)
+					}
+				}
+
+			}
+			Gpay_qr_code_generator as "Gpay qr code generator"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on user input of Total
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// 1. Configuration
+										vpa = "manikandans250903@okaxis";
+										merchantName = "Service amount";
+										// Convert the number to a string to prevent errors
+										amountStr = input.Total.toString();
+										currency = "INR";
+										// Use a fallback if the ID is not yet generated
+										currentID = ifnull(input.ID,"New_Guest");
+										transactionNote = "Payment for " + currentID;
+										// 2. Build and Encode the UPI String
+										// We encode the parts to handle spaces and special characters
+										encodedName = zoho.encryption.urlEncode(merchantName);
+										encodedNote = zoho.encryption.urlEncode(transactionNote);
+										upiString = "upi://pay?pa=" + vpa + "&pn=" + encodedName + "&am=" + amountStr + "&cu=" + currency + "&tn=" + encodedNote;
+										// 3. Generate the QR Code URL
+										// We encode the entire UPI string so the API can read it
+										encodedUpi = zoho.encryption.urlEncode(upiString);
+										qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodedUpi;
+										// 4. Update the Note field
+										// This sends the HTML image tag to your Note field
+										Payment_QR = "<div><p style='font-weight:bold;'>Scan to pay via GPay:</p><img src='" + qrUrl + "' alt='QR Code' /></div>";
+						)
+					}
+				}
+
+			}
+			GPay_qr_generator as "GPay qr generator"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Total_amount
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// 1. Show the QR field (ensures it is visible)
+										show Payment_QR;
+										// 2. Configuration
+										vpa = "manikandans250903@okaxis";
+										merchantName = "Service amount";
+										currency = "INR";
+										// Ensure we are using the correct field for the amount
+										// If your field is 'Total', change 'Total_amount' to 'Total'
+										amountStr = ifnull(input.Total_amount,0).toString();
+										// Handle ID for new records
+										currentID = ifnull(input.ID,"0").toString();
+										transactionNote = "Payment for Guest-" + currentID;
+										// 3. Advanced UPI Parameters (Fixes the 'Add Bank Account' issue)
+										merchantCode = "0000";
+										// Standard generic code
+										transactionRef = "TXN" + zoho.currenttime.toLong();
+										// Generates a unique reference
+										// 4. Build and Encode
+										encodedName = zoho.encryption.urlEncode(merchantName);
+										encodedNote = zoho.encryption.urlEncode(transactionNote);
+										// Constructing the full UPI string with mc and tr parameters
+										upiString = "upi://pay?pa=" + vpa + "&pn=" + encodedName + "&am=" + amountStr + "&cu=" + currency + "&tn=" + encodedNote + "&mc=" + merchantCode + "&tr=" + transactionRef;
+										// 5. Generate QR URL
+										encodedUpi = zoho.encryption.urlEncode(upiString);
+										qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodedUpi;
+										// 6. Update the Note field with the QR Image
+										// Added a safety check: Only show QR if amount > 0
+										if(input.Total_amount > 0)
+										{
+											input.Payment_QR = "<div><br><img src='" + qrUrl + "' style='border:2px solid #ccc; border-radius:10px;' /><br><p style='font-family:sans-serif;'><b>Amount to Pay: ₹" + amountStr + "</b></p></div>";
+										}
+										else
+										{
+											input.Payment_QR = "Please enter an amount to generate QR code.";
+										}
+						)
+					}
+				}
+
+			}
+			Send_SMS as "Send SMS"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on success
+				{
+				}
+
+			}
+			Insert_apply_rate as "Insert apply rate"
+			{
+				type =  form
+				form = Shift_a_room
+
+				record event = on add or edit
+
+				on user input of Move_to
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Move_to != null)
+										{
+											input.Apply_rate = 250;
+										}
+										else
+										{
+											input.Apply_rate = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Show_AC_and_Normal_room as "Show AC and Normal room"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Room_type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Room_type == "AC room")
+										{
+											show AC_room_number;
+										}
+										else if(Room_type == "Normal room")
+										{
+											show Normal_room_number;
+										}
+										else
+										{
+											hide AC_room_number;
+											hide Normal_room_number;
+										}
+						)
+					}
+				}
+
+			}
+			Calculate_guest_age as "Calculate guest age"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Guest_details.Date_of_birth
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(row.Date_of_birth != null)
+										{
+											dateOfBirth = row.Date_of_birth;
+											currentDate = zoho.currentdate;
+											// Calculate age using the yearsBetween function
+											input.Guest_details.Age = yearsBetween(dateOfBirth,currentDate);
+											//     row.age = age;
+										}
+										else
+										{
+											input.Guest_details.Age = null;
+										}
+						)
+					}
+				}
+
+			}
+			Send_reservation_ticket as "Send reservation ticket"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Main Container - Width set to 1200px (1700px is too wide for most email screens)
+										ticket_html = "<html><body style=\"font-family: 'Georgia', serif; background:#f2f2f2; padding:20px;\">";
+										ticket_html = ticket_html + "<table width='900' height='330' align='center' cellpadding='0' cellspacing='0' style='background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.2); border-collapse:collapse;'>";
+										ticket_html = ticket_html + "<tr>";
+										// 1. LEFT RED STRIP
+										ticket_html = ticket_html + "<td width='80' bgcolor='#d06666' style='text-align:center; vertical-align:middle;'>";
+										ticket_html = ticket_html + "<div style='writing-mode:vertical-rl; transform:rotate(180deg); color:#ffffff; font-weight:bold; letter-spacing:2px; font-size:16px;'>Confirmed Reservation</div>";
+										ticket_html = ticket_html + "</td>";
+										// 2. MIDDLE SECTION (Guest Details)
+										ticket_html = ticket_html + "<td style='padding:20px; vertical-align:top;'>";
+										// ticket_html = ticket_html + "<h3 style='text-align:center; font-size:20px; letter-spacing:3px; font-weight:normal; margin:0;'>You have</h3>";
+										ticket_html = ticket_html + "<h1 style='text-align:center; font-size:22px; margin:5px 0;'>Hotel Reservation</h1>";
+										ticket_html = ticket_html + "<div style='text-align:center; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:8px; margin-bottom:20px;'>At Hills Grand Hotel</div>";
+										// Details Row
+										ticket_html = ticket_html + "<table width='100%'><tr>";
+										// Date Box
+										ticket_html = ticket_html + "<td width='100' style='border:1px solid #ccc; padding:15px; text-align:center; vertical-align:middle; background:#f9f9f9;'>";
+										ticket_html = ticket_html + input.Check_in_date.toString("MMM") + "<br>";
+										ticket_html = ticket_html + "<h2 style='margin:5px 0;'>" + input.Check_in_date.toString("dd") + "</h2>";
+										ticket_html = ticket_html + input.Check_in_date.toString("yyyy");
+										ticket_html = ticket_html + "</td>";
+										// Text Info
+										ticket_html = ticket_html + "<td style='padding-left:15px; font-size:10px; line-height:1.6;'>";
+										ticket_html = ticket_html + "<b>Guest : </b> " + ifnull(input.Guest_details.Guest_name,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Gender : </b> " + ifnull(input.Guest_details.Gender,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Guest Type : </b> " + ifnull(input.Guest_type,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Guest mobile number : </b> " + ifnull(input.Mobile_number,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Guest ID : </b> " + ifnull(input.ID1,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Guest Aadhar no. : </b> " + ifnull(input.Guest_details.Aadhar_number,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Room type : </b> " + ifnull(input.Room_type,"-") + "<br>";
+										ticket_html = ticket_html + "<b>Check-out date : </b> " + ifnull(input.Check_out_date.toString()," - ") + "<br>";
+										if(input.Employee_ID != null)
+										{
+											ticket_html = ticket_html + "<b>Employee ID : </b> " + input.Employee_ID + "<br>";
+										}
+										ticket_html = ticket_html + "<p style='margin:15px 0 0 0; color:#2e8b57; font-weight:bold; font-size:10px;'>Balance amount to pay: ₹" + ifnull(input.Total_amount,0) + "</p>";
+										calculate_total = input.Total_amount + input.Advance_amount;
+										ticket_html = ticket_html + "<p style='margin:15px 0 0 0; color:#2e8b57; font-weight:bold; font-size:10px;'>Total amount : ₹" + calculate_total + "</p>";
+										ticket_html = ticket_html + "</td></tr></table>";
+										// T&C
+										ticket_html = ticket_html + "<p style='font-size:10px; margin-top:30px; color:#666;'>Terms & conditions : Valid for " + ifnull(input.Guest_details.Guest_name,"Guest") + " only. ID proof required at check-in.</p>";
+										ticket_html = ticket_html + "<p style='font-size:10px; margin-top:30px; color:#666;'>This is system generated reservation ticket.</p>";
+										ticket_html = ticket_html + "</td>";
+										// 3. RIGHT SECTION - Reduced width to 220px to make it tighter
+										ticket_html = ticket_html + "<td width='220' style='border-left:2px dashed #ccc; padding:15px; vertical-align:middle; text-align:center;'>";
+										// Luggage Image (Centered)
+										ticket_html = ticket_html + "<img src='https://img.freepik.com/premium-vector/vector-travel-suitcase-travel-bag-icon-illustration-trolley-bag-logo-icon_602177-99.jpg' style='width:90px; height:auto; margin-bottom:15px;'>";
+										// Address Table - Using a more reliable Location Icon link
+										ticket_html = ticket_html + "<table align='center' border='0' cellpadding='0' cellspacing='0' style='width:100%;'>";
+										ticket_html = ticket_html + "<tr>";
+										// Location Icon Cell (Left side of the address text)
+										ticket_html = ticket_html + "<td style='vertical-align:top; width:25px; padding-top:2px;'>";
+										ticket_html = ticket_html + "<img src='https://cdn-icons-png.flaticon.com/512/684/684908.png' style='width:18px; height:18px;'>";
+										ticket_html = ticket_html + "</td>";
+										// Address Text Cell
+										ticket_html = ticket_html + "<td style='text-align:left; font-family:sans-serif;'>";
+										ticket_html = ticket_html + "<strong style='font-size:12px; color:#000;'>Hills Grand Hotel</strong><br>";
+										ticket_html = ticket_html + "<span style='font-size:10px; color:#444; line-height:1.4;'>245 Mountain View Ave,<br>Riverdale, Karnataka<br>560102, India</span>";
+										ticket_html = ticket_html + "</td>";
+										ticket_html = ticket_html + "</tr>";
+										ticket_html = ticket_html + "</table>";
+										ticket_html = ticket_html + "</td>";
+										ticket_html = ticket_html + "</tr>";
+										ticket_html = ticket_html + "</table>";
+										ticket_html = ticket_html + "</body></html>";
+										pdfFile1 = zoho.file.convertToPDF(ticket_html);
+										//combining two messages to send in one message
+										intro_text = "Dear Guest," + " " + input.Guest_details.Guest_name + " " + " <br><br> Your reservation is confirmed. Please find your ticket below:<br><br>";
+										final_message = intro_text + ticket_html;
+										// Send Mail Task
+										sendmail
+										[
+											from :"zentegrademo31@gmail.com"
+											to :input.Email
+											cc:"manikandansjobzen@gmail.com"
+											reply to :"manikandan@zentegra.com"
+											subject :"Your Hotel Reservation Ticket - Hills Hotel"
+											message :final_message
+											Attachments :file:pdfFile1
+										]
+						)
+					}
+				}
+
+			}
+			Calculate_number_of_days as "Calculate number of days"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on user input of Check_out_date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Check_out_date != null)
+										{
+											startDate = input.Check_in_date;
+											endDate = input.Check_out_date;
+											numberOfDays = daysBetween(startDate,endDate);
+											input.Number_of_days_stayed = numberOfDays;
+										}
+										else
+										{
+											input.Number_of_days_stayed = null;
+										}
+						)
+					}
+				}
+
+			}
+			Hide_fields1 as "Hide fields"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											hide Food_and_reverage;
+										hide Facilities;
+										hide Services;
+										hide Mini_Bar;
+										hide Restaurant_meals;
+										// hide Facilities;
+										hide Gym_access;
+										hide Swimming_pool;
+										// hide Services;
+										hide Laundry;
+										hide Physio_treatment;
+						)
+					}
+				}
+
+			}
+			Show_Minibar_resturant_me as "Show Minibar & resturant meals"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Food_and_reverage
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Food_and_reverage == "Mini - Bar")
+										{
+											show Mini_Bar;
+										}
+										else
+										{
+											hide Mini_Bar;
+											input.Total_amount = null;
+										}
+						)
+					}
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Food_and_reverage == "Restaurant meals")
+										{
+											show Restaurant_meals;
+										}
+										else
+										{
+											hide Restaurant_meals;
+											input.Total_amount = null;
+										}
+						)
+					}
+				}
+
+			}
+			Show_gymaccess_swimming_p as "Show gymaccess & swimming pool"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Facilities
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Facilities == "Gym access")
+										{
+											show Gym_access;
+											// 	input.Total_amount = 200;
+										}
+										else
+										{
+											hide Gym_access;
+											input.Total_amount = null;
+										}
+						)
+					}
+				}
+
+			}
+			show_services as "show services"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Services
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Services == "Laundry / dry cleaning")
+										{
+											show Laundry;
+										}
+										else
+										{
+											hide Laundry;
+										}
+						)
+					}
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Services == "Physio treatment")
+										{
+											show Physio_treatment;
+										}
+										else
+										{
+											hide Physio_treatment;
+										}
+						)
+					}
+				}
+
+			}
+			Calculate_mini_bar_bill as "Calculate mini bar bill"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Mini_Bar
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Mini_Bar == "Beer")
+										{
+											input.Total_amount = 100;
+										}
+										else if(input.Mini_Bar == "Whisky")
+										{
+											input.Total_amount = 150;
+										}
+										else if(input.Mini_Bar == "Rum")
+										{
+											input.Total_amount = 200;
+										}
+										else if(input.Mini_Bar == "Odka")
+										{
+											input.Total_amount = 250;
+										}
+										else if(input.Mini_Bar == "Wine")
+										{
+											input.Total_amount = 300;
+										}
+										else if(input.Mini_Bar == "Cocktail")
+										{
+											input.Total_amount = 450;
+										}
+										else
+										{
+											input.Total_amount = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Calculate_restaurant_meal as "Calculate restaurant meals price"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Restaurant_meals
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Restaurant_meals == "Chicken biriyani")
+										{
+											input.Total_amount = 199;
+										}
+										else if(input.Restaurant_meals == "Fried rice")
+										{
+											input.Total_amount = 150;
+										}
+										else if(input.Restaurant_meals == "South Indian meals")
+										{
+											input.Total_amount = 170;
+										}
+										else if(input.Restaurant_meals == "Non panner butter masala")
+										{
+											input.Total_amount = 150;
+										}
+										else
+										{
+											input.Total_amount = null;
+										}
+						)
+					}
+				}
+
+			}
+			Calculate_gym_price as "Calculate gym price"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Gym_access
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Gym_access == "Treadmill")
+										{
+											input.Total_amount = 300;
+										}
+										else if(input.Gym_access == "Workout")
+										{
+											input.Total_amount = 250;
+										}
+										else if(input.Gym_access == "Body building")
+										{
+											input.Total_amount = 400;
+										}
+										else
+										{
+											input.Total_amount = null;
+										}
+						)
+					}
+				}
+
+			}
+			calculate_price_swimming_ as "calculate price swimming pool"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Swimming_pool
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Total_amount = null;
+										if(input.Swimming_pool == "Visitor")
+										{
+											input.Total_amount = 20;
+										}
+										else if(input.Swimming_pool == "Swim")
+										{
+											input.Total_amount = 200;
+										}
+										else
+										{
+											input.Total_amount = null;
+										}
+						)
+					}
+				}
+
+			}
+			show_swiming_pool as "show swiming pool"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Facilities
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Facilities == "Swimming pool")
+										{
+											show Swimming_pool;
+										}
+										else
+										{
+											hide Swimming_pool;
+										}
+						)
+					}
+				}
+
+			}
+			Show_the_Amenities_field as "Show the Amenities field"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Select_Amenities
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Select_Amenities == "Food and reverage")
+										{
+											show Food_and_reverage;
+										}
+										else
+										{
+											hide Food_and_reverage;
+										}
+						)
+					}
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Select_Amenities == "Facilities")
+										{
+											show Facilities;
+										}
+										else
+										{
+											hide Facilities;
+										}
+						)
+					}
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Select_Amenities == "Services")
+										{
+											show Services;
+										}
+										else
+										{
+											hide Services;
+										}
+						)
+					}
+				}
+
+			}
+			Send_amenities_bill_in_ma as "Send amenities bill in mail"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											ticket_html = "";
+										ticket_html = ticket_html + "<html>";
+										ticket_html = ticket_html + "<head><meta charset='UTF-8'><title>Amenities invoice</title></head>";
+										ticket_html = ticket_html + "<body style='margin:0;padding:20px;background:#f4f6f8;font-family:Segoe UI,Arial;'>";
+										ticket_html = ticket_html + "<table width='100%' cellspacing='0' cellpadding='0'><tr><td align='center'>";
+										ticket_html = ticket_html + "<table width='600' style='background:#ffffff;border-radius:10px;padding:25px;'>";
+										ticket_html = ticket_html + "<tr><td style='text-align:center;border-bottom:2px dashed #ddd;padding-bottom:15px;'>";
+										ticket_html = ticket_html + "<h1 style='margin:0;color:#2c3e50;'>Welcome to Hill grand hotel</h1>";
+										ticket_html = ticket_html + "<p style='color:#777;font-size:14px;'>Thank you for choosing our service !</p>";
+										// ticket_html = ticket_html + "<span style='background:#27ae60;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;'>PAID ✅</span>";
+										ticket_html = ticket_html + "<span style='padding:6px 14px;border-radius:20px;font-size:12px;'>" + input.Date_Time + "</span>";
+										ticket_html = ticket_html + "</td></tr>";
+										ticket_html = ticket_html + "<tr><td>";
+										ticket_html = ticket_html + "<table width='100%' style='font-size:14px;margin-top:20px;'>";
+										ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Customer name</td><td style='padding:10px;'>" + input.Customer_Name + "</td></tr>";
+										ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Room number</td><td style='padding:10px;'>" + input.Room_number + "</td></tr>";
+										ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Room type</td><td style='padding:10px;'>" + input.Room + "</td></tr>";
+										ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Selected amenities</td><td style='padding:10px;'>" + input.Select_Amenities + "</td></tr>";
+										if(input.Select_Amenities == "Food and reverage")
+										{
+											if(input.Food_and_reverage == "Mini - Bar")
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Mini bar</td><td style='padding:10px;'>" + input.Mini_Bar + "</td></tr>";
+											}
+											else
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Restaurant meals</td><td style='padding:10px;'>" + input.Restaurant_meals + "</td></tr>";
+											}
+										}
+										else if(input.Select_Amenities == "Facilities")
+										{
+											if(input.Facilities == "Gym access")
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Gym access</td><td style='padding:10px;'>" + input.Gym_access + "</td></tr>";
+											}
+											else
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Swimming pool</td><td style='padding:10px;'>" + input.Swimming_pool + "</td></tr>";
+											}
+										}
+										else if(input.Select_Amenities == "Services")
+										{
+											if(input.Services == "Laundry / dry cleaning")
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Laundry / dry cleaning</td><td style='padding:10px;'>" + input.Laundry + "</td></tr>";
+											}
+											else
+											{
+												ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Physio treatment</td><td style='padding:10px;'>" + input.Physio_treatment + "</td></tr>";
+											}
+										}
+										// ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>phone</td><td style='padding:10px;'>" + input.Enter_your_phone_number + "</td></tr>";
+										// ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Snacks type</td><td style='padding:10px;'>" + input.Select_the_snacks_type + "</td></tr>";
+										ticket_html = ticket_html + "<tr><td style='padding:10px;color:#555;'>Total amount</td><td style='padding:10px;'>" + input.Total_amount + "</td></tr>";
+										ticket_html = ticket_html + "<tr>" + "<td style='padding:10px;color:#555;'>QR code</td>" + "<td style='padding:10px;color:#27ae60;font-weight:bold;'>" + "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + input.Total_amount + "'style='width:120px;height:120px;'>" + "</td>" + "</tr>";
+										ticket_html = ticket_html + "</table>";
+										ticket_html = ticket_html + "</td></tr>";
+										ticket_html = ticket_html + "</table>";
+										ticket_html = ticket_html + "</td></tr></table>";
+										ticket_html = ticket_html + "</body></html>";
+										sendmail
+										[
+											from :"zentegrademo31@gmail.com"
+											to :input.Customer_email
+											cc:"manikandansjobzen@gmail.com"
+											reply to :"manikandan@zentegra.com"
+											subject :"Welcome to hills grand hotel amenities services"
+											message :ticket_html
+										]
+						)
+					}
+				}
+
+			}
+			Disable as "Disable"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											disable Total_amount;
+										disable Date_Time;
+						)
+					}
+				}
+
+			}
+			Date_field as "Date field"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Date_Time = zoho.currenttime.toString("yyyy-MM-dd HH:mm:ss","Asia/Kolkata");
+						)
+					}
+				}
+
+			}
+			Hide as "Hide"
+			{
+				type =  form
+				form = Add_guest
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											hide Corporate;
+										hide Employee_ID;
+						)
+					}
+				}
+
+			}
+			Show_field as "Show field"
+			{
+				type =  form
+				form = Add_guest
+
+				record event = on add or edit
+
+				on user input of Guest_type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Guest_type == "Corporate")
+										{
+											show Corporate;
+											show Employee_ID;
+										}
+										else
+										{
+											hide Corporate;
+											hide Employee_ID;
+										}
+						)
+					}
+				}
+
+			}
+			Confirmation_to_customer as "Confirmation to customer"
+			{
+				type =  form
+				form = Add_guest
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											sendmail
+										[
+											from :"zentegrademo31@gmail.com"
+											to :input.Guest_Email
+											cc:"manikandansjobzen@gmail.com"
+											reply to :"manikandan@zentegra.com"
+											subject :"Welcome to hills grand hotel administrator"
+											message :"Congratulations " + " " + input.Guest_name + " " + "!" + " Guest registration completed successfully. Welcome to our hotel."
+										]
+						)
+					}
+				}
+
+			}
+			Enable as "Enable"
+			{
+				type =  form
+				form = Amenities_bill
+
+				record event = on add or edit
+
+				on user input of Payment_status
+				{
+				}
+
+			}
+			Send_payment_notification as "Send payment notification"
+			{
+				type =  form
+				form = Reservation
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Payment_type == "Online payment")
+										{
+											// Payment Confirmation Card Container
+											payment_html = "<html><body style=\"background-color:#f2f2f2; padding:50px; font-family:sans-serif;\">";
+											payment_html = payment_html + "<div style='width:320px; background:white; border-radius:15px; padding:30px; margin:auto; text-align:center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);'>";
+											// 1. SUCCESS ICON (Green Circle with Checkmark)
+											payment_html = payment_html + "<div style='margin-bottom:20px;'>";
+											payment_html = payment_html + "<img src='https://cdn-icons-png.flaticon.com/512/5610/5610944.png' style='width:70px; height:70px;'>";
+											payment_html = payment_html + "</div>";
+											// 2. HEADER
+											payment_html = payment_html + "<h2 style='font-size:24px; color:#1a1a1a; margin:0 0 25px 0;'>Payment Confirmed !</h2>";
+											// 3. TRANSACTION DETAILS TABLE
+											payment_html = payment_html + "<table width='100%' border='0' cellspacing='0' cellpadding='8' style='font-size:14px; color:#444;'>";
+											// Amount Row
+											payment_html = payment_html + "<tr>";
+											payment_html = payment_html + "<td style='text-align:left; font-weight:bold;'>Amount:</td>";
+											payment_html = payment_html + "<td style='text-align:right;'>₹" + ifnull(input.Total_amount,"0.00") + "</td>";
+											payment_html = payment_html + "</tr>";
+											// Date Row
+											payment_date = zoho.currenttime.toString("MMM dd, yyyy","Asia/Kolkata");
+											payment_html = payment_html + "<tr>";
+											payment_html = payment_html + "<td style='text-align:left; font-weight:bold;'>Date:</td>";
+											payment_html = payment_html + "<td style='text-align:right;'>" + zoho.currenttime + "</td>";
+											payment_html = payment_html + "</tr>";
+											//from payment 
+											payment_html = payment_html + "<tr>";
+											payment_html = payment_html + "<td style='text-align:left; font-weight:bold;'>Transaction from</td>";
+											payment_html = payment_html + "<td style='text-align:right;'>" + input.Guest_details.Guest_name + "</td>";
+											payment_html = payment_html + "</tr>";
+											// Transaction ID Row
+											payment_html = payment_html + "<tr>";
+											payment_html = payment_html + "<td style='text-align:left; font-weight:bold;'>Transaction to</td>";
+											payment_html = payment_html + "<td style='text-align:right;'>" + "Hills Grand Hotel" + "</td>";
+											payment_html = payment_html + "</tr>";
+											payment_html = payment_html + "</table>";
+											// 4. DONE BUTTON
+											// 	payment_html = payment_html + "<div style='margin-top:30px;'>";
+											// 	payment_html = payment_html + "<div style='background:#444; color:white; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer; text-transform:uppercase; font-size:14px; letter-spacing:1px;'>Done</div>";
+											// 	payment_html = payment_html + "</div>";
+											payment_html = payment_html + "</div></body></html>";
+											pdfFile1 = zoho.file.convertToPDF(payment_html);
+											sendmail
+											[
+												from :"zentegrademo31@gmail.com"
+												to :input.Email
+												cc:"manikandansjobzen@gmail.com"
+												reply to :"manikandan@zentegra.com"
+												subject :"Your Hotel Reservation Ticket - Hills Hotel"
+												message :"Congratulations ! Your online payment was successfull, Please find the payment confirmation receipt below."
+												Attachments :file:pdfFile1
+											]
+										}
+										else
+										{
+											sendmail
+											[
+												from :"zentegrademo31@gmail.com"
+												to :input.Email
+												cc:"manikandansjobzen@gmail.com"
+												reply to :"manikandan@zentegra.com"
+												subject :"Your Hotel Reservation Ticket - Hills Hotel"
+												message :"Congratulations ! Your cash payment of an amount " + " " + "rupees" + " " + input.Total_amount + " was successfull."
+											]
+										}
+						)
+					}
+				}
+
+			}
+			Disable_fields as "Disable fields"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											disable Date_Time;
+										disable Total;
+										disable Tax_Amount;
+										disable Charge;
+						)
+					}
+				}
+
+			}
+			Date_time_default_filling as "Date time default filling"
+			{
+				type =  form
+				form = Service_bill
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Date_Time = zoho.currenttime.toString("yyyy-MM-dd HH:mm:ss","Asia/Kolkata");
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Add_guest
+			{
+				label placement = left
+			}
+			form Amenities_bill
+			{
+				label placement = left
+			}
+			form Cash_payment
+			{
+				label placement = left
+			}
+			form Maintenance_Block
+			{
+				label placement = left
+			}
+			form Raise_new_complaint
+			{
+				label placement = left
+			}
+			form Reservation
+			{
+				label placement = left
+			}
+			form Service_bill
+			{
+				label placement = left
+			}
+			form Shift_a_room
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report All_Reservations
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Check_in_date as "Check-in date"
+								Check_out_date as "Check-out date"
+								Guest_type as "Guest type"
+								Number_of_adults as "Number of adults"
+								Room_type as "Room type"
+								Confirm_reservation as "Confirm reservation"
+								Number_of_rooms as " Number of rooms"
+								Mobile_number as "Mobile number"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Check_in_date as "Check-in date"
+								Check_out_date as "Check-out date"
+								Guest_type as "Guest type"
+								Number_of_adults as "Number of adults"
+								Room_type as "Room type"
+								Payment_status as "Payment status"
+								Room_tariff as "Room tariff"
+								Tax_amount as "Tax amount"
+								Total_amount as "Total amount"
+								Advance_amount as "Advance amount"
+								Company_name as "Company name "
+								Confirm_reservation as "Confirm reservation"
+								Employee_ID as "Employee ID"
+								ID1 as "ID"
+								Number_of_days_stayed as "Number of days stayed"
+								Number_of_rooms as " Number of rooms"
+								Mobile_number as "Mobile number"
+								AC_room_number as "AC room number"
+								Normal_room_number as "Normal room number"
+								Guest_details.Guest_name as "Guest details"
+								Email
+								Payment_type as "Payment type"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_New_Complaints
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Type_field as "Type"
+								Description
+								Received_by as "Received by"
+								Room_number as "Room number "
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Type_field as "Type"
+								Description
+								Received_by as "Received by"
+								Room_number as "Room number "
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report Shift_a_room_Report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Current_room as "Current room"
+								Move_to as "Move to"
+								Reason
+								Apply_rate as "Apply rate"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Current_room as "Current room"
+								Move_to as "Move to"
+								Reason
+								Apply_rate as "Apply rate"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Maintenance_Blocks
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Maintenance_type as "Maintenance type"
+								Description
+								Room_number as "Room number"
+								Block_from as "Block from"
+								Block_to as "Block to "
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Maintenance_type as "Maintenance type"
+								Description
+								Room_number as "Room number"
+								Block_from as "Block from"
+								Block_to as "Block to "
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Service_Bills
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Date_Time as "Date-Time"
+								Choose_service as "Choose service"
+								Usage_details as "Usage details"
+								Charge
+								Tax_Amount as "Tax Amount"
+								Room_number as "Room number"
+								Email
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Date_Time as "Date-Time"
+								Choose_service as "Choose service"
+								Usage_details as "Usage details"
+								Charge
+								Tax_Amount as "Tax Amount"
+								Total
+								Room_number as "Room number"
+								Snacks
+								Email
+								Phone_number as "Phone number"
+								Customer_name as "Customer name"
+								Room_cleaning as "Room cleaning"
+								Electrical_service as "Electrical service"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report Amenities_bill_Report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Date_Time as "Date-Time"
+								Room as "Room type"
+								Select_Amenities as "Select Amenities"
+								Total_amount as "Total amount"
+								Food_and_reverage as "Food and reverage"
+								Services
+								Physio_treatment as "Physio treatment"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Date_Time as "Date-Time"
+								Room as "Room type"
+								Select_Amenities as "Select Amenities"
+								Total_amount as "Total amount"
+								Food_and_reverage as "Food and reverage"
+								Services
+								Mini_Bar as "Mini Bar"
+								Restaurant_meals as "Restaurant meals"
+								Facilities
+								Gym_access as "Gym access"
+								Swimming_pool as "Swimming pool"
+								Laundry
+								Physio_treatment as "Physio treatment"
+								Customer_email as "Customer email"
+								Payment_status as "Payment status"
+								Customer_Name as "Customer Name"
+								Room_number as "Room number"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Guests
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Guest_name as "Guest name"
+								Phone_number1 as "Phone number"
+								Guest_Email as "Guest Email "
+								Photo
+								Address
+								Guest_type as "Guest type"
+								Corporate
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Guest_name as "Guest name"
+								Phone_number1 as "Phone number"
+								Guest_Email as "Guest Email "
+								Photo
+								Address
+								Guest_type as "Guest type"
+								Corporate
+								Employee_ID as "Employee ID"
+								ID_proof as "ID proof"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Cash_Payments
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Payment_on as "Payment on"
+								Select_corporate as "Select corporate"
+								Room_tariff as "Room tariff"
+								Restaurant_charge as "Restaurant charge"
+								Service_charge as "Service charge"
+								Amenity_Charge as "Amenity Charge"
+								Pre_paid_amount as "Pre paid amount"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Payment_on as "Payment on"
+								Select_corporate as "Select corporate"
+								Room_tariff as "Room tariff"
+								Restaurant_charge as "Restaurant charge"
+								Service_charge as "Service charge"
+								Amenity_Charge as "Amenity Charge"
+								Pre_paid_amount as "Pre paid amount"
+								Remaining_amount as "Remaining amount"
+								Total_amount as "Total amount"
+								Amount_received as "Amount received"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Reservations
+				{
+					displayname = "Reservations"
+					icon = "travel-hotel-symbol"
+					form  Reservation
+					{
+						icon = "travel-fire"
+					}
+					report All_Reservations
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section New_Complaints
+				{
+					displayname = "New Complaints"
+					icon = "users-2-child"
+					form  Raise_new_complaint
+					{
+						icon = "users-2-child"
+					}
+					report All_New_Complaints
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Shift_a_room
+				{
+					displayname = "Shift a room"
+					icon = "furniture-table"
+					form  Shift_a_room
+					{
+						icon = "furniture-table"
+					}
+					report Shift_a_room_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Maintenance_Blocks
+				{
+					displayname = "Maintenance Blocks"
+					icon = "transportation-tractor"
+					form  Maintenance_Block
+					{
+						icon = "transportation-tractor"
+					}
+					report All_Maintenance_Blocks
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Service_Bills
+				{
+					displayname = "Service Bills"
+					icon = "business-money-12"
+					form  Service_bill
+					{
+						icon = "business-cheque"
+					}
+					report All_Service_Bills
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Amenities_bill
+				{
+					displayname = "Amenities bill"
+					icon = "business-money-11"
+					form  Amenities_bill
+					{
+						icon = "business-money-11"
+					}
+					report Amenities_bill_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Guests
+				{
+					displayname = "Guests"
+					icon = "users-2-wc"
+					form  Add_guest
+					{
+						icon = "tech-2-p-add"
+					}
+					report All_Guests
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Cash_Payments
+				{
+					displayname = "Cash Payments"
+					icon = "business-money-11"
+					form  Cash_payment
+					{
+						icon = "shopping-receipt"
+					}
+					report All_Cash_Payments
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Add_guest
+			{
+				label placement = auto
+			}
+			form Amenities_bill
+			{
+				label placement = auto
+			}
+			form Cash_payment
+			{
+				label placement = auto
+			}
+			form Maintenance_Block
+			{
+				label placement = auto
+			}
+			form Raise_new_complaint
+			{
+				label placement = auto
+			}
+			form Reservation
+			{
+				label placement = auto
+			}
+			form Service_bill
+			{
+				label placement = auto
+			}
+			form Shift_a_room
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = turquoise
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Add_guest
+			{
+				label placement = auto
+			}
+			form Amenities_bill
+			{
+				label placement = auto
+			}
+			form Cash_payment
+			{
+				label placement = auto
+			}
+			form Maintenance_Block
+			{
+				label placement = auto
+			}
+			form Raise_new_complaint
+			{
+				label placement = auto
+			}
+			form Reservation
+			{
+				label placement = auto
+			}
+			form Service_bill
+			{
+				label placement = auto
+			}
+			form Shift_a_room
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = turquoise
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
